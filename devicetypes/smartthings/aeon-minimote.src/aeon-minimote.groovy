@@ -68,9 +68,9 @@ def zwaveEvent(physicalgraph.zwave.commands.wakeupv1.WakeUpNotification cmd) {
 def buttonEvent(button, held) {
 	button = button as Integer
 	if (held) {
-		createEvent(name: "button", value: "held", data: [buttonNumber: button], descriptionText: "$device.displayName button $button was held", isStateChange: true)
+		createEvent(name: "button", value: "held $button", data: [buttonNumber: button], descriptionText: "$device.displayName button $button was held", isStateChange: true)
 	} else {
-		createEvent(name: "button", value: "pushed", data: [buttonNumber: button], descriptionText: "$device.displayName button $button was pushed", isStateChange: true)
+		createEvent(name: "button", value: "pushed $button", data: [buttonNumber: button], descriptionText: "$device.displayName button $button was pushed", isStateChange: true)
 	}
 }
 
